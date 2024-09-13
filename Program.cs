@@ -199,6 +199,39 @@
 
         public static void Hurricane()
         {
+            int category;
+
+            Console.WriteLine();
+            Console.WriteLine("Ready to learn about hurricances? Well clearly you are since you chose this program!");
+            Console.WriteLine("There are 5 categories of hurricanes, numbered 1-5.");
+            Console.WriteLine("Which would you like to learn about?");
+
+            while (!Int32.TryParse(Console.ReadLine().Trim(), out category) || category <= 0 || category > 5)
+            {
+                Console.WriteLine("That is not a valid hurricane category, please input a proper category, 1-5:");
+            }
+
+            switch (category)
+            {
+                case 1:
+                    Console.WriteLine("Category 1: 74-95 mph / 64-82 kt / 119-153 km/hr");
+                    break;
+                case 2:
+                    Console.WriteLine("Category 2: 96-110 mph / 83-95 kt / 154-177 km/hr");
+                    break;
+                case 3:
+                    Console.WriteLine("Category 3: 111-130 mph / 96-113 kt / 178-209 km/hr");
+                    break;
+                case 4:
+                    Console.WriteLine("Category 4: 131-155 mph / 114-135 kt / 210-249 km/hr");
+                    break;
+                case 5:
+                    Console.WriteLine("Category 1: > 155 mph / > 135 kt / > 249 km/hr");
+                    break;
+            }
+
+
+
 
         }
 

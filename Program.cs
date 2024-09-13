@@ -37,6 +37,7 @@
                     Hurricane();
                 }
 
+                Console.WriteLine();
                 Console.WriteLine("Would you like continue? (y/n)");
 
                 doneChoice = Console.ReadLine().Trim().ToLower();
@@ -75,7 +76,7 @@
 
             while(!Double.TryParse(Console.ReadLine().Trim(), out enteredAngle))
             {
-                Console.WriteLine("That is not a valid response, please input a proper angle");
+                Console.WriteLine("That is not a valid response, please input a proper angle:");
             }
 
             actualAngle = enteredAngle % 360;          
@@ -142,6 +143,57 @@
 
         public static void ParkingGarage()
         {
+            double minutes, hours;
+
+            Console.WriteLine();
+            Console.WriteLine("Welcome to the digital parking meter.");
+            Console.WriteLine("How many minutes will you be staying for:");
+
+            while (!Double.TryParse(Console.ReadLine().Trim(), out minutes) || minutes < 0)
+            {
+                Console.WriteLine("That is not a valid input, please input a proper value:");
+            }
+
+            hours = Math.Ceiling(minutes / 60);
+
+            Console.WriteLine($"You will be charged for {hours} hours.");
+
+            if (hours == 1)
+            {
+                Console.WriteLine("Your bill is $4.00");
+            }
+            else if (hours == 2)
+            {
+                Console.WriteLine("Your bill is $6.00");
+            }
+            else if (hours == 3)
+            {
+                Console.WriteLine("Your bill is $8.00");
+            }
+            else if (hours == 4)
+            {
+                Console.WriteLine("Your bill is $10.00");
+            }
+            else if (hours == 5)
+            {
+                Console.WriteLine("Your bill is $12.00");
+            }
+            else if (hours == 6)
+            {
+                Console.WriteLine("Your bill is $14.00");
+            }
+            else if (hours == 7)
+            {
+                Console.WriteLine("Your bill is $16.00");
+            }
+            else if (hours == 8)
+            {
+                Console.WriteLine("Your bill is $18.00");
+            }
+            else if (hours >= 9)
+            {
+                Console.WriteLine("Your bill is $20.00");
+            }
 
         }
 

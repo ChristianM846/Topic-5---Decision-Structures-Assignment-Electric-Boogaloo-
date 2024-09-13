@@ -79,22 +79,19 @@
                 Console.WriteLine("That is not a valid response, please input a proper angle");
             }
 
-            actualAngle = enteredAngle;
+            actualAngle = enteredAngle % 360;
 
             if (enteredAngle < 0 || enteredAngle > 360)
             {
                 outsideRange = true;
             }
 
-            while (actualAngle < 0)
+            if (actualAngle < 0)
             {
-                actualAngle = actualAngle + 360;
+                actualAngle += 360;
             }
 
-            while (actualAngle > 360)
-            {
-                actualAngle = actualAngle - 360;
-            }
+            Console.WriteLine(actualAngle);
 
             if (!outsideRange)
             {
@@ -134,7 +131,6 @@
                 {
                     Console.WriteLine("That's closest to North.");
                 }
-
             }
 
 

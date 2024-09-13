@@ -68,7 +68,6 @@
         public static void CompassBearings()
         {
             double enteredAngle, actualAngle;
-            bool outsideRange = false;
 
             Console.WriteLine();
             Console.WriteLine("Give me an angle, and I'll tell you which cardinal direction it points closest to. (0 or 360 degrees = North");
@@ -79,64 +78,66 @@
                 Console.WriteLine("That is not a valid response, please input a proper angle");
             }
 
-            actualAngle = enteredAngle % 360;
-
-            if (enteredAngle < 0 || enteredAngle > 360)
-            {
-                outsideRange = true;
-            }
+            actualAngle = enteredAngle % 360;          
 
             if (actualAngle < 0)
             {
                 actualAngle += 360;
             }
 
-            Console.WriteLine(actualAngle);
-
-            if (!outsideRange)
+            if (enteredAngle < 0 || enteredAngle > 360)
             {
-                if (actualAngle == 0 || actualAngle == 360)
-                {
-                    Console.WriteLine("That's perfectly North!");
-                }
-                else if (actualAngle == 90)
-                {
-                    Console.WriteLine("That's perfectly East!");
-                }
-                else if (actualAngle == 180)
-                {
-                    Console.WriteLine("That's perfectly South!");
-                }
-                else if (actualAngle == 270)
-                {
-                    Console.WriteLine("That's perfectly West!");
-                }
-                else if (actualAngle == 45)
-                {
-                    Console.WriteLine("That's perfectly between North and East. It's Northeast!");
-                }
-                else if (actualAngle == 135)
-                {
-                    Console.WriteLine("That's perfectly between South and East. It's Southeast!");
-                }
-                else if (actualAngle == 225)
-                {
-                    Console.WriteLine("That's perectly between South and West. It's Southwest!");
-                }
-                else if (actualAngle == 315)
-                {
-                    Console.WriteLine("That's perfectly between North and West. It's Northwest!");
-                }
-                else if (actualAngle > 315 || actualAngle < 45)
-                {
-                    Console.WriteLine("That's closest to North.");
-                }
+                Console.WriteLine($"You entered {enteredAngle} degrees. That is equivalent to {actualAngle} degrees");
             }
 
-
-
-
-
+            if (actualAngle == 0 || actualAngle == 360)
+            {
+                Console.WriteLine("That's perfectly North!");
+            }
+            else if (actualAngle == 90)
+            {
+                Console.WriteLine("That's perfectly East!");
+            }
+            else if (actualAngle == 180)
+            {
+                Console.WriteLine("That's perfectly South!");
+            }
+            else if (actualAngle == 270)
+            {
+                Console.WriteLine("That's perfectly West!");
+            }
+            else if (actualAngle == 45)
+            {
+                Console.WriteLine("That's perfectly between North and East. It's Northeast!");
+            }
+            else if (actualAngle == 135)
+            {
+                Console.WriteLine("That's perfectly between South and East. It's Southeast!");
+            }
+            else if (actualAngle == 225)
+            {
+                Console.WriteLine("That's perectly between South and West. It's Southwest!");
+            }
+            else if (actualAngle == 315)
+            {
+                Console.WriteLine("That's perfectly between North and West. It's Northwest!");
+            }
+            else if (actualAngle > 315 || actualAngle < 45)
+            {
+                Console.WriteLine("That's closest to North.");
+            }
+            else if (actualAngle > 45 && actualAngle < 135)
+            {
+                Console.WriteLine("That's closest to East.");
+            }
+            else if (actualAngle > 135 && actualAngle < 225)
+            {
+                Console.WriteLine("That's closest to South.");
+            }
+            else if (actualAngle > 225 && actualAngle < 315)
+            {
+                Console.WriteLine("That's closest to West.");
+            }
         }
 
         public static void ParkingGarage()
